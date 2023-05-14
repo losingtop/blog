@@ -35,6 +35,7 @@ if (postId) {
                 const tagElement = tag.content.cloneNode(true)
                 tagElement.setAttribute('href', `/#/tag/${tag}`)
                 tagElement.innerText = tag
+                tag.append(tagElement)
             }
         } else
             postElement.querySelector('.tags').remove()
