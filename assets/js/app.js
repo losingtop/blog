@@ -31,7 +31,8 @@ if (postId) {
         post?.image ? postElement.querySelector('.image').setAttribute('src', post.image) : postElement.querySelector('.image').remove()
         postElement.querySelector('.title').innerText = post.title
         post?.description ? postElement.querySelector('.description').innerText = post.description : postElement.querySelector('.description').remove()
-        postElement.querySelector('.details').innerText = `By ${post.author.displayName} | Tags: ${post.tags}`
+        postElement.querySelector('.details').innerText = `By ${post.author.displayName}`
+        post?.tags ? postElement.querySelector('.tags').innerText = `${post.tags}` : postElement.querySelector('.tags').remove()
         postElement.querySelector('.dates').innerText = `Created: ${new Date(post.createdDate).toLocaleDateString()} ${new Date(post.createdDate).toLocaleTimeString()}\n Changed: ${new Date(post.updatedDate).toLocaleDateString()} ${new Date(post.updatedDate).toLocaleTimeString()}`
         postElement.querySelector('.content').innerHTML = marked.parse(post.content)
 
