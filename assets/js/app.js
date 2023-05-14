@@ -29,13 +29,14 @@ if (postId) {
         const postElement = template.content.cloneNode(true)
         
         if (post?.tags) {
-            const tag = postElement.querySelector('a.tag')
+            const tagsWrapper = postElement.querySelector('.tags')
             
             for (tag of post.tags) {
-                const tagElement = tag.content.cloneNode(true)
+                const tagElement = document.createElement('a')
+                tagElement.classList.add('tag')
                 tagElement.setAttribute('href', `/#/tag/${tag}`)
                 tagElement.innerText = tag
-                tag.append(tagElement)
+                tagsWrapper.append(tagElement)
             }
         } else
             postElement.querySelector('.tags').remove()
