@@ -11,7 +11,6 @@ if (postId) {
             p.innerText = 'something went wrong'
             document.body.append(p)
         })
-        .then(console.log)
         .then(res => res.json())
         .then(callback)
 
