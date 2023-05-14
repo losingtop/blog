@@ -55,7 +55,7 @@ h1.site-title {
     align-items: center;
     gap: 20px;
     position: relative;
-    background-color: #0c1114;
+    background-color: var(--bg-1);
     padding: 20px;
     margin: 20px;
     border-radius: 20px;
