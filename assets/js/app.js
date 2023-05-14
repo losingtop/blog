@@ -1,10 +1,10 @@
 const main = document.querySelector('main')
-const path = window.location.pathname;
+const urlPath = window.location.pathname;
 
 if (path.startsWith('/#/post')) {
     const p = document.createElement('p')
     
-    const postId = path.replace('/#/post/', '')
+    const postId = urlPath.replace('/#/post/', '')
     if (!postId) {
         p.innerText = 'no postId specified'
         return document.body.append(p)
