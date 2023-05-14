@@ -4,6 +4,18 @@
     box-sizing: border-box;
 }
 
+@media (prefers-color-scheme: light) {
+  :root {
+      --bg-1: #bfbfbf;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+      --bg-1: #17161a;
+  }
+}
+
 html {
     color-scheme: light dark;
 }
