@@ -1,11 +1,15 @@
-const urlParams = new URLSearchParams(window.location.search)
-const postId = urlParams.get('post')
-
 const main = document.querySelector('main')
+const path = window.location.pathname;
 
-if (postId) {
+if (path.startsWith('/#/post')) {
     const p = document.createElement('p')
-
+    
+    const postId = path.replace('/#/post/', '')
+    if (!postId) {
+        p.innerText = 'no postId specified'
+        return document.body.append(p)
+    }
+    
     fetch(`https://blog-api.losing.top/post?postId=${postId}`)
         .catch(() => {
             p.innerText = 'something went wrong'
@@ -15,8 +19,6 @@ if (postId) {
         .then(callback)
 
     function callback(post) {
-        console.log(post)
-
         if (post.error) {
             p.innerText = 'post not found'
             return document.body.append(p)
