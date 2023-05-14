@@ -1,5 +1,5 @@
 const main = document.querySelector('main')
-const urlPath = window.location.pathname;
+const urlPath = window.location.href.replace(window.location.protocol + '//' + window.location.hostname + window.location.pathname, '')
 
 if (path.startsWith('/#/post')) {
     const p = document.createElement('p')
