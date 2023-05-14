@@ -26,6 +26,10 @@ body {
     font-size: 1.125rem;
 }
 
+li {
+    margin-left: 16px;
+}
+
 p {
     max-width: 100%;
 }
