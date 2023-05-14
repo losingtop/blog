@@ -6,7 +6,7 @@ const main = document.querySelector('main')
 if (postId) {
     const p = document.createElement('p')
 
-    fetch(`http://blog-api.losing.top/post?postId=${postId}`)
+    fetch(`https://blog-api.losing.top/post?postId=${postId}`)
         .catch(() => {
             p.innerText = 'something went wrong'
             document.body.append(p)
