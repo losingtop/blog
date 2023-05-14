@@ -1,7 +1,7 @@
 const main = document.querySelector('main')
 const urlPath = window.location.href.replace(window.location.protocol + '//' + window.location.hostname + window.location.pathname, '')
 
-if (path.startsWith('/#/post')) {
+if (urlPath.startsWith('/#/post')) {
     const p = document.createElement('p')
     
     const postId = urlPath.replace('/#/post/', '')
@@ -33,7 +33,7 @@ if (path.startsWith('/#/post')) {
         if (post?.tags) {
             const tagsWrapper = postElement.querySelector('.tags')
             
-            for (tag of post.tags) {
+            for (const tag of post.tags) {
                 const tagElement = document.createElement('a')
                 tagElement.classList.add('tag')
                 tagElement.setAttribute('href', `/#/tag/${tag}`)
