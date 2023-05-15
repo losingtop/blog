@@ -2,7 +2,7 @@ const main = document.querySelector('main')
 const urlPath = window.location.href.replace(window.location.protocol + '//' + window.location.hostname + window.location.pathname, '');
 
 (async () => {
-    if (urlPath.startsWith('/#/post')) {
+    if (urlPath.startsWith('#/post')) {
         const p = document.createElement('p')
 
         const postId = urlPath.replace('/#/post/', '')
