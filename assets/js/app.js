@@ -71,7 +71,7 @@ async function loadContent(urlPath) {
     }
 }
 
-async updatePage() {
+async function updatePage() {
     if (document.querySelector('main'))
         document.querySelector('main').remove()
     
