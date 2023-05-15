@@ -5,6 +5,7 @@ if (urlPath.startsWith('/#/post')) {
     const p = document.createElement('p')
 
     const postId = urlPath.replace('/#/post/', '')
+    
     if (!postId) {
         p.innerText = 'no postId specified'
         return document.body.append(p)
