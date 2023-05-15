@@ -10,6 +10,7 @@ let main = document.querySelector('main');
 
 async function loadContent(urlPath) {
     await updatePage()
+    console.log(main)
     
     if (urlPath.startsWith('#/post')) {
         const p = document.createElement('p')
