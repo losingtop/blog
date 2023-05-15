@@ -56,4 +56,4 @@ const urlPath = window.location.href.replace(window.location.protocol + '//' + w
         wrapper.append(postElement)
         main.append(wrapper)
     }
-})
+})()
