@@ -5,7 +5,7 @@ const urlPath = window.location.href.replace(window.location.protocol + '//' + w
     if (urlPath.startsWith('#/post')) {
         const p = document.createElement('p')
 
-        const postId = urlPath.replace('/#/post/', '')
+        const postId = urlPath.replace('#/post/', '')
 
         if (!postId) {
             p.innerText = 'no postId specified'
