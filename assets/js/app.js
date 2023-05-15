@@ -55,6 +55,10 @@ const main = document.querySelector('main')
 
             wrapper.append(postElement)
             main.append(wrapper)
+        } else {
+            const p = document.createElement('p')
+            p.innerText = 'not found'
+            main.append(p)
         }
     }
     
