@@ -1,4 +1,4 @@
-let main = document.querySelector('main');
+const main = document.querySelector('main');
 
 (async () => {    
     await loadContent(window.location.hash)
@@ -10,7 +10,7 @@ let main = document.querySelector('main');
 
 async function loadContent(urlPath) {
     await updatePage()
-    console.log(main)
+    console.log(content)
     
     if (urlPath.startsWith('#/post')) {
         const p = document.createElement('p')
@@ -18,20 +18,20 @@ async function loadContent(urlPath) {
         const postId = urlPath.replace('#/post/', '')
         if (!postId) {
             p.innerText = 'no postId specified'
-            return document.body.append(p)
+            return content.append(p)
         }
 
         const res = await fetch(`https://blog-api.losing.top/post?postId=${postId}`)
             .catch(() => {
                 p.innerText = 'something went wrong'
-                document.body.append(p)
+                content.append(p)
             })
 
         const post = await res.json()
 
         if (post.error) {
             p.innerText = 'post not found'
-            return document.body.append(p)
+            return content.append(p)
         }
 
         const title = document.querySelector('head > title')
@@ -64,18 +64,19 @@ async function loadContent(urlPath) {
         wrapper.classList.add('post')
 
         wrapper.append(postElement)
-        main.append(wrapper)
+        content.append(wrapper)
     } else {
         const p = document.createElement('p')
         p.innerText = 'not found'
-        main.append(p)
+        content.append(p)
     }
 }
 
 async function updatePage() {
-    if (document.querySelector('main'))
-        document.querySelector('main').remove()
+    if (document.querySelector('main > div.content'))
+        document.querySelector('main > div.content').remove()
     
-    var main = document.createElement('main')
-    document.body.prepend(main)
+    var content = document.createElement('div')
+    content.classList.add('content')
+    main.append(content)
 }
