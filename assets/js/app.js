@@ -1,4 +1,4 @@
-const main = document.querySelector('main');
+let main = document.querySelector('main');
 
 (async () => {    
     await loadContent(window.location.hash)
@@ -9,6 +9,8 @@ const main = document.querySelector('main');
 })()
 
 async function loadContent(urlPath) {
+    await updatePage()
+    
     if (urlPath.startsWith('#/post')) {
         const p = document.createElement('p')
 
@@ -67,4 +69,12 @@ async function loadContent(urlPath) {
         p.innerText = 'not found'
         main.append(p)
     }
+}
+
+async updatePage() {
+    if (document.querySelector('main'))
+        document.querySelector('main').remove()
+    
+    var main = document.createElement('main')
+    document.body.prepend(main)
 }
