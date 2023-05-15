@@ -1,25 +1,24 @@
 const main = document.querySelector('main')
 const urlPath = window.location.href.replace(window.location.protocol + '//' + window.location.hostname + window.location.pathname, '')
 
-if (urlPath.startsWith('/#/post')) {
-    const p = document.createElement('p')
+(async () => {
+    if (urlPath.startsWith('/#/post')) {
+        const p = document.createElement('p')
 
-    const postId = urlPath.replace('/#/post/', '')
-    
-    if (!postId) {
-        p.innerText = 'no postId specified'
-        return document.body.append(p)
-    }
+        const postId = urlPath.replace('/#/post/', '')
 
-    fetch(`https://blog-api.losing.top/post?postId=${postId}`)
-        .catch(() => {
-            p.innerText = 'something went wrong'
-            document.body.append(p)
-        })
-        .then(res => res.json())
-        .then(callback)
+        if (!postId) {
+            p.innerText = 'no postId specified'
+            return document.body.append(p)
+        }
 
-    function callback(post) {
+        const post = await fetch(`https://blog-api.losing.top/post?postId=${postId}`)
+            .catch(() => {
+                p.innerText = 'something went wrong'
+                document.body.append(p)
+            })
+            .json()
+
         if (post.error) {
             p.innerText = 'post not found'
             return document.body.append(p)
@@ -57,4 +56,4 @@ if (urlPath.startsWith('/#/post')) {
         wrapper.append(postElement)
         main.append(wrapper)
     }
-}
+})
