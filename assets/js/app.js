@@ -10,7 +10,6 @@ const content = document.querySelector('main > div.content');
 
 async function loadContent(urlPath) {
     content.textContent = ''
-    console.log(content)
     
     if (urlPath.startsWith('#/post')) {
         const p = document.createElement('p')
