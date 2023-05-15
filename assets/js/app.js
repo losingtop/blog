@@ -1,6 +1,6 @@
-(async () => {
-    const main = document.querySelector('main')
-    
+const main = document.querySelector('main');
+
+(async () => {    
     await loadContent(window.location.hash)
     
     addEventListener("hashchange", async () => {
