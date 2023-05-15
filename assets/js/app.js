@@ -10,10 +10,15 @@ const content = document.querySelector('main > div.content');
 
 async function loadContent(urlPath) {
     content.textContent = ''
+    const p = document.createElement('p')
+    
+    if (!urlPath) {
+        p.innerText = 'default page, wip'
+        return content.append(p)
+        //TODO: show latest posts and other stuff
+    }
     
     if (urlPath.startsWith('#/post')) {
-        const p = document.createElement('p')
-
         const postId = urlPath.replace('#/post/', '')
         if (!postId) {
             p.innerText = 'no postId specified'
