@@ -7,17 +7,18 @@ const urlPath = window.location.href.replace(window.location.protocol + '//' + w
 
         const postId = urlPath.replace('#/post/', '')
 
-        if (!postId) {
+        if (postId === null || postId === undefined) {
             p.innerText = 'no postId specified'
             return document.body.append(p)
         }
 
-        const post = await fetch(`https://blog-api.losing.top/post?postId=${postId}`)
+        const res = await fetch(`https://blog-api.losing.top/post?postId=${postId}`)
             .catch(() => {
                 p.innerText = 'something went wrong'
                 document.body.append(p)
             })
-            .json()
+        
+        const post = await res.json()
 
         if (post.error) {
             p.innerText = 'post not found'
