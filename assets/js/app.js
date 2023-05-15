@@ -6,6 +6,7 @@ const urlPath = window.location.href.replace(window.location.protocol + '//' + w
         const p = document.createElement('p')
 
         const postId = urlPath.replace('#/post/', '')
+        console.log(postId)
 
         if (postId === null || postId === undefined) {
             p.innerText = 'no postId specified'
@@ -19,6 +20,8 @@ const urlPath = window.location.href.replace(window.location.protocol + '//' + w
             })
         
         const post = await res.json()
+        
+        console.log(post)
 
         if (post.error) {
             p.innerText = 'post not found'
