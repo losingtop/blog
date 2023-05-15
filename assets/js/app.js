@@ -1,4 +1,4 @@
-const main = document.querySelector('main');
+const content = document.querySelector('main > div.content');
 
 (async () => {    
     await loadContent(window.location.hash)
@@ -9,7 +9,7 @@ const main = document.querySelector('main');
 })()
 
 async function loadContent(urlPath) {
-    await updatePage()
+    content.textContent = ''
     console.log(content)
     
     if (urlPath.startsWith('#/post')) {
@@ -70,13 +70,4 @@ async function loadContent(urlPath) {
         p.innerText = 'not found'
         content.append(p)
     }
-}
-
-async function updatePage() {
-    if (document.querySelector('main > div.content'))
-        document.querySelector('main > div.content').remove()
-    
-    var content = document.createElement('div')
-    content.classList.add('content')
-    main.append(content)
 }
