@@ -64,7 +64,7 @@ const main = document.querySelector('main')
     
     await loadContent(window.location.hash)
     
-    addEventListener("hashchange", () => {
+    addEventListener("hashchange", async () => {
         await loadContent(window.location.hash)
     })
 })()
