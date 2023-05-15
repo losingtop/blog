@@ -1,4 +1,6 @@
 const main = document.querySelector('main')
+
+try {
 const urlPath = window.location.href.replace(window.location.protocol + '//' + window.location.hostname + window.location.pathname, '')
 
 if (urlPath.startsWith('/#/post')) {
@@ -56,4 +58,9 @@ if (urlPath.startsWith('/#/post')) {
         wrapper.append(postElement)
         main.append(wrapper)
     }
+}
+} catch(e) {
+    const p = document.createElement('p')
+    p.innerText = `error: ${e}`
+    main.append(p)
 }
