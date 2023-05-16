@@ -56,11 +56,28 @@ async function loadContent(urlPath) {
             }
         } else
             postElement.querySelector('.tags').remove()
-
+        
+        const authorText = document.createElement('p')
+        authorText.innerText = 'By '
+        postElement.querySelector('.author').append(authorText)
+        
+        if (post.author?.avatar) {
+            const authorAvatar = document.createElement('img')
+            authorAvatar.classList.add('authorAvatar')
+            authorAvatar.setAttribute('src', post.author.avatar)
+            authorAvatar.setAttribute('alt', `${post.author.displayName}'s avatar`)
+            postElement.querySelector('.author').append(authorAvatar)
+        }
+        
+        const authorName = document.createElement('a')
+        authorName.classList.add('authorNameLink')
+        authorName.setAttribute('href', `/#/author/${post.author.authorId}`)
+        authorName.innerText = post.author.displayName
+        postElement.querySelector('.author').append(authorName)
+        
         post?.image ? postElement.querySelector('.image').setAttribute('src', post.image) : postElement.querySelector('.image').remove()
         postElement.querySelector('.title').innerText = post.title
         post?.description ? postElement.querySelector('.description').innerText = post.description : postElement.querySelector('.description').remove()
-        postElement.querySelector('.details').innerText = `By ${post.author.displayName}`
         postElement.querySelector('.dates').innerText = `Created: ${new Date(post.createdDate).toLocaleDateString()} ${new Date(post.createdDate).toLocaleTimeString()}\n Changed: ${new Date(post.updatedDate).toLocaleDateString()} ${new Date(post.updatedDate).toLocaleTimeString()}`
         postElement.querySelector('.content').innerHTML = marked.parse(post.content)
 
@@ -88,6 +105,9 @@ async function loadContent(urlPath) {
             p.innerText = 'tag not found'
             return content.append(p)
         }
+        
+        const title = document.querySelector('head > title')
+        title.innerText = `Tag ${tag.title} | losing's blog`
 
         p.innerText = JSON.stringify(tag)
         content.append(p)
@@ -110,6 +130,9 @@ async function loadContent(urlPath) {
             p.innerText = 'author not found'
             return content.append(p)
         }
+        
+        const title = document.querySelector('head > title')
+        title.innerText = `Author ${author.title} | losing's blog`
 
         p.innerText = JSON.stringify(author)
         content.append(p)
