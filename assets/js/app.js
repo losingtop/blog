@@ -89,7 +89,7 @@ async function loadContent(urlPath) {
             return content.append(p)
         }
 
-        p.innerText = tag
+        p.innerText = JSON.stringify(tag)
         content.append(p)
     }  else if (urlPath.startsWith('#/author')) {
         const authorId = urlPath.replace('#/author/', '')
@@ -111,7 +111,7 @@ async function loadContent(urlPath) {
             return content.append(p)
         }
 
-        p.innerText = author
+        p.innerText = JSON.stringify(author)
         content.append(p)
     } else {
         const p = document.createElement('p')
