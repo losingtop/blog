@@ -97,7 +97,7 @@ h1.site-title {
 }
 
 .post > .postDetails > .right > .author a {
-    color: white;
+    color: initial;
 }
 
 .post > .postDetails > .right > .tags {
