@@ -69,6 +69,50 @@ async function loadContent(urlPath) {
 
         wrapper.append(postElement)
         content.append(wrapper)
+    } else if (urlPath.startsWith('#/tag')) {
+        const tagName = urlPath.replace('#/tag/', '')
+        if (!tagName) {
+            p.innerText = 'no tagName specified'
+            return content.append(p)
+        }
+
+        const res = await fetch(`https://blog-api.losing.top/tag?tagName=${tagName}`)
+            .catch(() => {
+                p.innerText = 'something went wrong'
+                content.append(p)
+            })
+
+        const tag = await res.json()
+
+        if (tag.error) {
+            p.innerText = 'tag not found'
+            return content.append(p)
+        }
+
+        p.innerText = tag
+        content.append(p)
+    }  else if (urlPath.startsWith('#/author')) {
+        const authorId = urlPath.replace('#/author/', '')
+        if (!authorId) {
+            p.innerText = 'no authorId specified'
+            return content.append(p)
+        }
+
+        const res = await fetch(`https://blog-api.losing.top/author?authorId=${authorId}`)
+            .catch(() => {
+                p.innerText = 'something went wrong'
+                content.append(p)
+            })
+
+        const author = await res.json()
+
+        if (author.error) {
+            p.innerText = 'author not found'
+            return content.append(p)
+        }
+
+        p.innerText = author
+        content.append(p)
     } else {
         const p = document.createElement('p')
         p.innerText = 'not found'
