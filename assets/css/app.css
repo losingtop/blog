@@ -89,7 +89,10 @@ h1.site-title {
 }
 
 .post > .postDetails > .right > .author img {
-    height: 100%;
+    height: 48px;
+    border-radius: 50%;
+    margin-right: 0;
+    margin-left: 10px;
     aspect-ratio: 1/1;
 }
 
