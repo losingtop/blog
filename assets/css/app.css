@@ -100,6 +100,19 @@ h1.site-title {
     color: white;
 }
 
+.post > .postDetails > .right > .tags {
+    display: flex;
+    align-items-center;
+}
+
+.post > .postDetails > .right > .tags > .tag {
+    padding: 5px 10px;
+    background-color: #19A7CE;
+    border: 1px solid #146C94;
+    color: white;
+    text-decoration: none;
+}
+
 .post > .postDetails > .right > .dates {
     font-size: 0.95em;
 }
