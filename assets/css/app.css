@@ -91,9 +91,13 @@ h1.site-title {
 .post > .postDetails > .right > .author img {
     height: 48px;
     border-radius: 50%;
-    margin-right: 0;
-    margin-left: 10px;
+    margin-left: 20px;
+    margin-right: 10px;
     aspect-ratio: 1/1;
+}
+
+.post > .postDetails > .right > .author a {
+    color: white;
 }
 
 .post > .postDetails > .right > .dates {
