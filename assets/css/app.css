@@ -91,8 +91,8 @@ h1.site-title {
 .post > .postDetails > .right > .author img {
     height: 48px;
     border-radius: 50%;
-    margin-left: 20px;
-    margin-right: 10px;
+    margin-left: 10px;
+    margin-right: 5px;
     aspect-ratio: 1/1;
 }
 
@@ -103,6 +103,7 @@ h1.site-title {
 .post > .postDetails > .right > .tags {
     display: flex;
     align-items-center;
+    margin-bottom: 10px;
 }
 
 .post > .postDetails > .right > .tags > .tag {
