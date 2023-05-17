@@ -151,7 +151,7 @@ async function loadContent(urlPath) {
             return content.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
         }
         
-        title.innerText = `Author ${author.name} | losing's blog`
+        title.innerText = `Author ${author.displayName} | losing's blog`
 
         p.innerText = JSON.stringify(author)
         content.append(p)
