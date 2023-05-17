@@ -1,3 +1,4 @@
+const title = document.querySelector('head > title');
 const content = document.querySelector('main > div.content');
 
 (async () => {    
@@ -13,20 +14,21 @@ async function loadContent(urlPath) {
     const p = document.createElement('p')
     
     if (!urlPath) {
+        title.innerText = `losing's blog`
         p.innerText = 'default page, wip'
         return content.append(p)
         //TODO: show latest posts and other stuff
-    }
-    
-    if (urlPath.startsWith('#/post')) {
+    } else if (urlPath.startsWith('#/post')) {
         const postId = urlPath.replace('#/post/', '')
         if (!postId) {
+            title.innerText = `Not Found | losing's blog`
             p.innerText = 'no postId specified'
             return content.append(p)
         }
 
         const res = await fetch(`https://blog-api.losing.top/post?postId=${postId}`)
             .catch(() => {
+                title.innerText = `Error | losing's blog`
                 p.innerText = 'something went wrong'
                 content.append(p)
             })
@@ -34,11 +36,11 @@ async function loadContent(urlPath) {
         const post = await res.json()
 
         if (post.error) {
+            title.innerText = `Not Found | losing's blog`
             p.innerText = 'post not found'
             return content.append(p)
         }
-
-        const title = document.querySelector('head > title')
+        
         title.innerText = `${post.title} | losing's blog`
 
         const template = document.querySelector('template#post')
@@ -89,12 +91,14 @@ async function loadContent(urlPath) {
     } else if (urlPath.startsWith('#/tag')) {
         const tagName = urlPath.replace('#/tag/', '')
         if (!tagName) {
+            title.innerText = `Not Found | losing's blog`
             p.innerText = 'no tagName specified'
             return content.append(p)
         }
 
         const res = await fetch(`https://blog-api.losing.top/tag?tagName=${tagName}`)
             .catch(() => {
+                title.innerText = `Error | losing's blog`
                 p.innerText = 'something went wrong'
                 content.append(p)
             })
@@ -102,11 +106,11 @@ async function loadContent(urlPath) {
         const tag = await res.json()
 
         if (tag.error) {
+            title.innerText = `Not Found | losing's blog`
             p.innerText = 'tag not found'
             return content.append(p)
         }
         
-        const title = document.querySelector('head > title')
         title.innerText = `Tag ${tag.tagName} | losing's blog`
 
         p.innerText = JSON.stringify(tag)
@@ -114,12 +118,14 @@ async function loadContent(urlPath) {
     }  else if (urlPath.startsWith('#/author')) {
         const authorId = urlPath.replace('#/author/', '')
         if (!authorId) {
+            title.innerText = `Not Found | losing's blog`
             p.innerText = 'no authorId specified'
             return content.append(p)
         }
 
         const res = await fetch(`https://blog-api.losing.top/author?authorId=${authorId}`)
             .catch(() => {
+                title.innerText = `Error | losing's blog`
                 p.innerText = 'something went wrong'
                 content.append(p)
             })
@@ -127,17 +133,17 @@ async function loadContent(urlPath) {
         const author = await res.json()
 
         if (author.error) {
+            title.innerText = `Not Found | losing's blog`
             p.innerText = 'author not found'
             return content.append(p)
         }
         
-        const title = document.querySelector('head > title')
         title.innerText = `Author ${author.name} | losing's blog`
 
         p.innerText = JSON.stringify(author)
         content.append(p)
     } else {
-        const p = document.createElement('p')
+        title.innerText = `Not Found | losing's blog`
         p.innerText = 'not found'
         content.append(p)
     }
