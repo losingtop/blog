@@ -86,24 +86,6 @@ async function loadContent(urlPath) {
 
         wrapper.append(postElement)
         content.append(wrapper)
-        
-        wrapper.animate([
-
-            // keyframes
-
-            { transform: "translateX(120vw)" },
-
-            { transform: "translateX(0)" },
-        ],
-
-        {
-
-            // timing options
-
-            duration: 300,
-            iterations: 1,
-
-        })
     } else if (urlPath.startsWith('#/tag')) {
         const tagName = urlPath.replace('#/tag/', '')
         if (!tagName) {
@@ -159,4 +141,15 @@ async function loadContent(urlPath) {
         p.innerText = 'not found'
         content.append(p)
     }
+    
+    content.animate(
+        [
+            { transform: "translateX(120vw)" },
+            { transform: "translateX(0)" },
+        ],
+        {
+            duration: 300,
+            iterations: 1,
+        }
+    )
 }
