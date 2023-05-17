@@ -100,7 +100,7 @@ async function loadContent(urlPath) {
 
             // timing options
 
-            duration: 300,
+            duration: 100,
             iterations: 1,
 
         })
