@@ -16,14 +16,16 @@ async function loadContent(urlPath) {
     if (!urlPath) {
         title.innerText = `losing's blog`
         p.innerText = 'default page, wip'
-        return content.append(p)
+        content.append(p)
+        return content.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
         //TODO: show latest posts and other stuff
     } else if (urlPath.startsWith('#/post')) {
         const postId = urlPath.replace('#/post/', '')
         if (!postId) {
             title.innerText = `Not Found | losing's blog`
             p.innerText = 'no postId specified'
-            return content.append(p)
+            content.append(p)
+            return content.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
         }
 
         const res = await fetch(`https://blog-api.losing.top/post?postId=${postId}`)
@@ -31,6 +33,7 @@ async function loadContent(urlPath) {
                 title.innerText = `Error | losing's blog`
                 p.innerText = 'something went wrong'
                 content.append(p)
+                return content.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
             })
 
         const post = await res.json()
@@ -38,7 +41,8 @@ async function loadContent(urlPath) {
         if (post.error) {
             title.innerText = `Not Found | losing's blog`
             p.innerText = 'post not found'
-            return content.append(p)
+            content.append(p)
+            return content.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
         }
         
         title.innerText = `${post.title} | losing's blog`
@@ -96,7 +100,8 @@ async function loadContent(urlPath) {
         if (!tagName) {
             title.innerText = `Not Found | losing's blog`
             p.innerText = 'no tagName specified'
-            return content.append(p)
+            content.append(p)
+            return content.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
         }
 
         const res = await fetch(`https://blog-api.losing.top/tag?tagName=${tagName}`)
@@ -104,6 +109,7 @@ async function loadContent(urlPath) {
                 title.innerText = `Error | losing's blog`
                 p.innerText = 'something went wrong'
                 content.append(p)
+                return content.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
             })
 
         const tag = await res.json()
@@ -111,7 +117,8 @@ async function loadContent(urlPath) {
         if (tag.error) {
             title.innerText = `Not Found | losing's blog`
             p.innerText = 'tag not found'
-            return content.append(p)
+            content.append(p)
+            return content.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
         }
         
         title.innerText = `Tag ${tag.tagName} | losing's blog`
@@ -123,7 +130,8 @@ async function loadContent(urlPath) {
         if (!authorId) {
             title.innerText = `Not Found | losing's blog`
             p.innerText = 'no authorId specified'
-            return content.append(p)
+            content.append(p)
+            return content.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
         }
 
         const res = await fetch(`https://blog-api.losing.top/author?authorId=${authorId}`)
@@ -131,6 +139,7 @@ async function loadContent(urlPath) {
                 title.innerText = `Error | losing's blog`
                 p.innerText = 'something went wrong'
                 content.append(p)
+                return content.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
             })
 
         const author = await res.json()
@@ -138,7 +147,8 @@ async function loadContent(urlPath) {
         if (author.error) {
             title.innerText = `Not Found | losing's blog`
             p.innerText = 'author not found'
-            return content.append(p)
+            content.append(p)
+            return content.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
         }
         
         title.innerText = `Author ${author.name} | losing's blog`
@@ -151,14 +161,5 @@ async function loadContent(urlPath) {
         content.append(p)
     }
     
-    content.animate(
-        [
-            { transform: "translateX(120vw)" },
-            { transform: "translateX(0)" },
-        ],
-        {
-            duration: 300,
-            iterations: 1,
-        }
-    )
+    content.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
 }
