@@ -13,7 +13,7 @@ async function loadContent(urlPath) {
     content.textContent = ''
     const p = document.createElement('p')
     
-    if (!urlPath) {
+    if (!urlPath || urlPath === "#" || urlPath === "#/") {
         title.innerText = `losing's blog`
         p.innerText = 'default page, wip'
         content.append(p)
