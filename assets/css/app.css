@@ -46,6 +46,7 @@ video {
 main {
     width: min(100ch, 100% - 4rem);
     margin-inline: auto;
+    overflow: hidden;
 }
 
 h1.site-title {
