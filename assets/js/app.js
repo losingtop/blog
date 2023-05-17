@@ -107,7 +107,7 @@ async function loadContent(urlPath) {
         }
         
         const title = document.querySelector('head > title')
-        title.innerText = `Tag ${tag.title} | losing's blog`
+        title.innerText = `Tag ${tag.tagName} | losing's blog`
 
         p.innerText = JSON.stringify(tag)
         content.append(p)
@@ -132,7 +132,7 @@ async function loadContent(urlPath) {
         }
         
         const title = document.querySelector('head > title')
-        title.innerText = `Author ${author.title} | losing's blog`
+        title.innerText = `Author ${author.name} | losing's blog`
 
         p.innerText = JSON.stringify(author)
         content.append(p)
