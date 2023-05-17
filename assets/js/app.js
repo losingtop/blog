@@ -86,6 +86,24 @@ async function loadContent(urlPath) {
 
         wrapper.append(postElement)
         content.append(wrapper)
+        
+        wrapper.animate([
+
+            // keyframes
+
+            { transform: "translateX(120vw)" },
+
+            { transform: "translateX(0)" },
+        ],
+
+        {
+
+            // timing options
+
+            duration: 500,
+            iterations: 1,
+
+        })
     } else if (urlPath.startsWith('#/tag')) {
         const tagName = urlPath.replace('#/tag/', '')
         if (!tagName) {
