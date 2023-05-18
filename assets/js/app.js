@@ -24,7 +24,7 @@ async function loadContent(urlPath) {
                 return content.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
             })
                 
-        const { posts } = res.json()
+        const { posts } = await res.json()
         console.log(posts, res)
         
         const postsWrapper = document.createElement('div')
