@@ -130,7 +130,7 @@ async function loadContent(urlPath) {
         tagElementName.innerText = `Tag ${tag.tagName}`
         
         const tagElementText = tagElement.querySelector('.tagDetails > .right > p.postsNumber')
-        tagElementText.innerText = `0 posts`
+        tagElementText.innerText = `0 total posts`
 
         const wrapper = document.createElement('div')
         wrapper.classList.add('tag')
