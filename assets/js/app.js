@@ -20,7 +20,6 @@ async function loadContent(urlPath) {
         recentPostsHeading.classList.add('sectionHeading')
         recentPostsHeading.innerText = `Recent posts`
         content.append(recentPostsHeading)
-        recentPostsHeading.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
        
         const res = await fetch(`https://blog-api.losing.top/posts`)
             .catch(() => {
