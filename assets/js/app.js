@@ -129,8 +129,8 @@ async function loadContent(urlPath) {
         const tagElementName = tagElement.querySelector('.tagDetails > .right > h1.name')
         tagElementName.innerText = `Tag ${tag.tagName}`
         
-        const tagElementText = tagElement.querySelector('.tagDetails > .right > p.postsNumber')
-        tagElementText.innerText = `0 total posts`
+        const tagElementPostsCount = tagElement.querySelector('.tagDetails > .right > p.postsCount')
+        tagElementPostsCount.innerText = `${tag.postsCount} total posts`
 
         const wrapper = document.createElement('div')
         wrapper.classList.add('tag')
@@ -179,6 +179,9 @@ async function loadContent(urlPath) {
         
         const authorDescription = authorElement.querySelector('.authorDetails > .right > p.description')
         authorDescription.innerText = author.description
+        
+        const authorPostsCount = authorElement.querySelector('.authorDetails > .right > p.postsCount')
+        authorPostsCount.innerText = `${author.postsCount} total posts`
 
         const wrapper = document.createElement('div')
         wrapper.classList.add('author')
