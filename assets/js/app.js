@@ -27,7 +27,7 @@ async function loadContent(urlPath) {
         const { posts } = res
         
         const postsWrapper = document.createElement('div')
-        postsWrapper.classList.add('postInfo')
+        postsWrapper.classList.add('postsWrapper')
         
         for (post in posts) {
             const template = document.querySelector('template#postInfo')
