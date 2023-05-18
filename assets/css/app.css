@@ -71,7 +71,7 @@ h1.site-title {
 .post > .postDetails > .image,
 .author > .authorDetails > .authorDetailsAvatar {
     margin: 0;
-    width: 50vmin;
+    width: 20vmin;
     display: block;
     object-fit: cover;
     z-index: 1;
@@ -79,6 +79,7 @@ h1.site-title {
 
 .author > .authorDetails > .authorDetailsAvatar {
     border-radius: 50%;
+    width: 20vmin;
 }
 
 .post > .postDetails > .right,
