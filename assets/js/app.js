@@ -18,6 +18,7 @@ async function loadContent(urlPath) {
         
         const recentPostsHeading = document.createElement('h2')
         recentPostsHeading.classList.add('sectionHeading')
+        recentPostsHeading.innerText = `Recent posts`
         content.append(recentPostsHeading)
         recentPostsHeading.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
        
