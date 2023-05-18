@@ -28,7 +28,6 @@ async function loadContent(urlPath) {
         
         const postsWrapper = document.createElement('div')
         postsWrapper.classList.add('postInfo')
-        content.append(postsWrapper)
         
         for (post in posts) {
             const template = document.querySelector('template#postInfo')
@@ -75,9 +74,10 @@ async function loadContent(urlPath) {
 
             wrapper.append(postElement)
             postsWrapper.append(wrapper)
-            
-            wrapper.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
         }
+        
+        content.append(postsWrapper)
+        content.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
         
         //TODO: show latest posts and other stuff
     } else if (urlPath.startsWith('#/post')) {
