@@ -72,6 +72,7 @@ async function loadContent(urlPath) {
 
             post?.image ? postElement.querySelector('.image').setAttribute('src', posts[post].image) : postElement.querySelector('.image').remove()
             postElement.querySelector('.title').innerText = posts[post].title
+            postElement.querySelector('.title').setAttribute('href', `/#/post/${postId}`)
             post?.description ? postElement.querySelector('.description').innerText = posts[post].description : postElement.querySelector('.description').remove()
             
             const wrapper = document.createElement('div')
