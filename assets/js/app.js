@@ -159,7 +159,7 @@ async function loadContent(urlPath) {
         if (author?.avatar) {
             const authorAvatar = authorElement.querySelector('.authorDetails > img')
             authorAvatar.setAttribute('src', author.avatar)
-            authorAvatar.setAttribute('alt', `${post.author.displayName}'s avatar`)
+            authorAvatar.setAttribute('alt', `${author.displayName}'s avatar`)
         }
         
         const authorName = authorElement.querySelector('.authorDetails > .right > h1.name')
