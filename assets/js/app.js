@@ -15,6 +15,11 @@ async function loadContent(urlPath) {
     
     if (!urlPath || urlPath === "#" || urlPath === "#/") {
         title.innerText = `losing's blog`
+        
+        const recentPostsHeading = document.createElement('h2')
+        recentPostsHeading.classList.add('sectionHeading')
+        content.append(recentPostsHeading)
+        recentPostsHeading.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
        
         const res = await fetch(`https://blog-api.losing.top/posts`)
             .catch(() => {
@@ -25,15 +30,12 @@ async function loadContent(urlPath) {
             })
                 
         const { posts } = await res.json()
-        console.log(posts, res)
         
         const postsWrapper = document.createElement('div')
         postsWrapper.classList.add('postsWrapper')
         content.append(postsWrapper)
         
         for (post in posts) {
-            console.log('loop')
-            
             const template = document.querySelector('template#postInfo')
             const postElement = template.content.cloneNode(true)
             
@@ -80,8 +82,6 @@ async function loadContent(urlPath) {
             
             wrapper.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
         }
-        
-        //TODO: show latest posts and other stuff
     } else if (urlPath.startsWith('#/post')) {
         const postId = urlPath.replace('#/post/', '')
         if (!postId) {
