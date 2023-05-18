@@ -91,6 +91,11 @@ h1.site-title {
     z-index: 3;
 }
 
+.tag > .tagDetails > .right > p.postsNumber {
+    margin-top: 10px;
+    font-size: 1.1rem;
+}
+
 .post > .postDetails > .right > .author {
     display: flex;
     align-items: center;
