@@ -123,8 +123,17 @@ async function loadContent(urlPath) {
         
         title.innerText = `Tag ${tag.tagName} | losing's blog`
 
-        p.innerText = JSON.stringify(tag)
-        content.append(p)
+        const template = document.querySelector('template#tag')
+        const tagElement = template.content.cloneNode(true)
+        
+        const tagName = tagElement.querySelector('.tagDetails > .right > h1.name')
+        tagName.innerText = tag.tagName
+
+        const wrapper = document.createElement('div')
+        wrapper.classList.add('tag')
+
+        wrapper.append(tagElement)
+        content.append(wrapper)
     }  else if (urlPath.startsWith('#/author')) {
         const authorId = urlPath.replace('#/author/', '')
         if (!authorId) {
