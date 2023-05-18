@@ -164,6 +164,9 @@ async function loadContent(urlPath) {
         
         const authorName = authorElement.querySelector('.authorDetails > .right > h1.name')
         authorName.innerText = author.displayName
+        
+        const authorDescription = authorElement.querySelector('.authorDetails > .right > p.description')
+        authorDescription.innerText = author.description
 
         const wrapper = document.createElement('div')
         wrapper.classList.add('author')
