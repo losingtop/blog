@@ -74,6 +74,8 @@ async function loadContent(urlPath) {
 
             wrapper.append(postElement)
             postsWrapper.append(wrapper)
+            
+            console.log(wrapper, postsWrapper)
         }
         
         content.append(postsWrapper)
