@@ -25,11 +25,14 @@ async function loadContent(urlPath) {
             })
                 
         const { posts } = res.json()
+        console.log(posts)
         
         const postsWrapper = document.createElement('div')
         postsWrapper.classList.add('postsWrapper')
         
         for (post in posts) {
+            console.log('loop')
+            
             const template = document.querySelector('template#postInfo')
             const postElement = template.content.cloneNode(true)
             
