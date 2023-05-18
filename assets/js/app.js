@@ -79,7 +79,7 @@ async function loadContent(urlPath) {
             wrapper.append(postElement)
             postsWrapper.append(wrapper)
             
-            wrapper..animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
+            wrapper.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
         }
         
         //TODO: show latest posts and other stuff
