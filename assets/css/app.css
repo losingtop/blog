@@ -56,7 +56,8 @@ h1.site-title {
 
 .post > .postDetails,
 .author > .authorDetails,
-.tag > .tagDetails {
+.tag > .tagDetails,
+.postInfo {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -70,6 +71,7 @@ h1.site-title {
 }
 
 .post > .postDetails > .image,
+.postInfo > .image,
 .author > .authorDetails > .authorDetailsAvatar {
     margin: 0;
     width: 50vmin;
@@ -85,10 +87,10 @@ h1.site-title {
 
 .post > .postDetails > .right,
 .author > .authorDetails > .right,
-.tag > .tagDetails > .right {
+.tag > .tagDetails > .right,
+.postInfo > .right {
     display: flex;
     flex-direction: column;
-    z-index: 3;
 }
 
 .tag > .tagDetails > .right > p.postsCount,
@@ -97,7 +99,8 @@ h1.site-title {
     font-size: 1.1rem;
 }
 
-.post > .postDetails > .right > .author {
+.post > .postDetails > .right > .author,
+.postInfo > .right > .author {
     display: flex;
     align-items: center;
     font-weight: bold;
@@ -105,7 +108,8 @@ h1.site-title {
     margin-block: 20px;
 }
 
-.post > .postDetails > .right > .author img {
+.post > .postDetails > .right > .author img,
+.postInfo > .right > .author img {
     height: 48px;
     border-radius: 50%;
     margin-left: 10px;
@@ -113,17 +117,20 @@ h1.site-title {
     aspect-ratio: 1/1;
 }
 
-.post > .postDetails > .right > .author a {
+.post > .postDetails > .right > .author a,
+.postInfo > .right > . author a {
     color: currentcolor;
 }
 
-.post > .postDetails > .right > .tags {
+.post > .postDetails > .right > .tags,
+.postInfo > .right > .tags {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
 }
 
-.post > .postDetails > .right > .tags > .tag {
+.post > .postDetails > .right > .tags > .tag,
+.postInfo > .right > .tags > .tag {
     padding: 5px 10px;
     background-color: #19A7CE;
     border: 4px solid #146C94;
