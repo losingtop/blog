@@ -15,9 +15,69 @@ async function loadContent(urlPath) {
     
     if (!urlPath || urlPath === "#" || urlPath === "#/") {
         title.innerText = `losing's blog`
-        p.innerText = 'default page, wip'
-        content.append(p)
-        return content.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
+       
+        const res = await fetch(`https://blog-api.losing.top/posts`)
+            .catch(() => {
+                title.innerText = `Error | losing's blog`
+                p.innerText = 'something went wrong'
+                content.append(p)
+                return content.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
+                
+        const { posts } = res
+        
+        const postsWrapper = document.createElement('div')
+        postsWrapper.classList.add('postInfo')
+        content.append(postsWrapper)
+        
+        for (post in posts) {
+            const template = document.querySelector('template#postInfo')
+            const postElement = template.content.cloneNode(true)
+            
+            if (post?.tags) {
+                const tagsWrapper = postElement.querySelector('.tags')
+
+                for (const tag of post.tags) {
+                    const tagElement = document.createElement('a')
+                    tagElement.classList.add('tag')
+                    tagElement.setAttribute('href', `/#/tag/${tag}`)
+                    tagElement.innerText = tag
+                    tagsWrapper.append(tagElement)
+                }
+            } else
+                postElement.querySelector('.tags').remove()
+
+            const authorText = document.createElement('p')
+            authorText.innerText = 'By '
+            postElement.querySelector('.author').append(authorText)
+
+            if (post.author?.avatar) {
+                const authorAvatar = document.createElement('img')
+                authorAvatar.classList.add('authorAvatar')
+                authorAvatar.setAttribute('src', post.author.avatar)
+                authorAvatar.setAttribute('alt', `${post.author.displayName}'s avatar`)
+                postElement.querySelector('.author').append(authorAvatar)
+            }
+
+            const authorName = document.createElement('a')
+            authorName.classList.add('authorNameLink')
+            authorName.setAttribute('href', `/#/author/${post.author.authorId}`)
+            authorName.innerText = post.author.displayName
+            postElement.querySelector('.author').append(authorName)
+
+            post?.image ? postElement.querySelector('.image').setAttribute('src', post.image) : postElement.querySelector('.image').remove()
+            postElement.querySelector('.title').innerText = post.title
+            post?.description ? postElement.querySelector('.description').innerText = post.description : postElement.querySelector('.description').remove()
+            postElement.querySelector('.content').innerHTML = marked.parse(post.content)
+            
+            const wrapper = document.createElement('div')
+            wrapper.classList.add('postInfo')
+
+            wrapper.append(postElement)
+            postsWrapper.append(wrapper)
+            
+            wrapper.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
+        }
+        
         //TODO: show latest posts and other stuff
     } else if (urlPath.startsWith('#/post')) {
         const postId = urlPath.replace('#/post/', '')
