@@ -22,6 +22,7 @@ async function loadContent(urlPath) {
                 p.innerText = 'something went wrong'
                 content.append(p)
                 return content.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
+            }
                 
         const { posts } = res
         
