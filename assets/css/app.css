@@ -55,7 +55,8 @@ h1.site-title {
 }
 
 .post > .postDetails,
-.author > .authorDetails {
+.author > .authorDetails,
+.tag > .tagDetails, {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -71,7 +72,7 @@ h1.site-title {
 .post > .postDetails > .image,
 .author > .authorDetails > .authorDetailsAvatar {
     margin: 0;
-    width: 20vmin;
+    width: 50vmin;
     display: block;
     object-fit: cover;
     z-index: 1;
@@ -83,7 +84,8 @@ h1.site-title {
 }
 
 .post > .postDetails > .right,
-.author > .authorDetails > .right {
+.author > .authorDetails > .right,
+.tag > .tagDetails > .right {
     display: flex;
     flex-direction: column;
     z-index: 3;
