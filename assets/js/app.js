@@ -127,7 +127,10 @@ async function loadContent(urlPath) {
         const tagElement = template.content.cloneNode(true)
         
         const tagElementName = tagElement.querySelector('.tagDetails > .right > h1.name')
-        tagElementName.innerText = tag.tagName
+        tagElementName.innerText = `Tag ${tag.tagName}`
+        
+        const tagElementText = tagElement.querySelector('.tagDetails > .right > p.postsNumber')
+        tagElementText.innerText = `0 posts`
 
         const wrapper = document.createElement('div')
         wrapper.classList.add('tag')
