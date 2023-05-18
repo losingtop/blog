@@ -153,8 +153,23 @@ async function loadContent(urlPath) {
         
         title.innerText = `Author ${author.displayName} | losing's blog`
 
-        p.innerText = JSON.stringify(author)
-        content.append(p)
+        const template = document.querySelector('template#author')
+        const authorElement = template.content.cloneNode(true)
+        
+        if (author?.avatar) {
+            const authorAvatar = authorElement.querySelector('.authorDetails > img')
+            authorAvatar.setAttribute('src', author.avatar)
+            authorAvatar.setAttribute('alt', `${post.author.displayName}'s avatar`)
+        }
+        
+        const authorName = authorElement.querySelector('.authorDetails > .right > h1.name')
+        authorName.innerText = post.author.displayName
+
+        const wrapper = document.createElement('div')
+        wrapper.classList.add('author')
+
+        wrapper.append(authorElement)
+        content.append(wrapper)
     } else {
         title.innerText = `Not Found | losing's blog`
         p.innerText = 'not found'
