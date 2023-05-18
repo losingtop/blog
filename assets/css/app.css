@@ -91,7 +91,8 @@ h1.site-title {
     z-index: 3;
 }
 
-.tag > .tagDetails > .right > p.postsNumber {
+.tag > .tagDetails > .right > p.postsCount,
+.author > .authorDetails > .right > p.postsCount {
     margin-top: 10px;
     font-size: 1.1rem;
 }
