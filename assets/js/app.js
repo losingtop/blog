@@ -163,7 +163,7 @@ async function loadContent(urlPath) {
         }
         
         const authorName = authorElement.querySelector('.authorDetails > .right > h1.name')
-        authorName.innerText = post.author.displayName
+        authorName.innerText = author.displayName
 
         const wrapper = document.createElement('div')
         wrapper.classList.add('author')
