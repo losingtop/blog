@@ -29,6 +29,7 @@ async function loadContent(urlPath) {
         
         const postsWrapper = document.createElement('div')
         postsWrapper.classList.add('postsWrapper')
+        content.append(postsWrapper)
         
         for (post in posts) {
             console.log('loop')
@@ -36,10 +37,10 @@ async function loadContent(urlPath) {
             const template = document.querySelector('template#postInfo')
             const postElement = template.content.cloneNode(true)
             
-            if (post?.tags) {
+            if (posts[post]?.tags) {
                 const tagsWrapper = postElement.querySelector('.tags')
 
-                for (const tag of post.tags) {
+                for (const tag of posts[post].tags) {
                     const tagElement = document.createElement('a')
                     tagElement.classList.add('tag')
                     tagElement.setAttribute('href', `/#/tag/${tag}`)
@@ -53,24 +54,24 @@ async function loadContent(urlPath) {
             authorText.innerText = 'By '
             postElement.querySelector('.author').append(authorText)
 
-            if (post.author?.avatar) {
+            if (posts[post].author?.avatar) {
                 const authorAvatar = document.createElement('img')
                 authorAvatar.classList.add('authorAvatar')
-                authorAvatar.setAttribute('src', post.author.avatar)
-                authorAvatar.setAttribute('alt', `${post.author.displayName}'s avatar`)
+                authorAvatar.setAttribute('src', posts[post].author.avatar)
+                authorAvatar.setAttribute('alt', `${posts[post].author.displayName}'s avatar`)
                 postElement.querySelector('.author').append(authorAvatar)
             }
 
             const authorName = document.createElement('a')
             authorName.classList.add('authorNameLink')
-            authorName.setAttribute('href', `/#/author/${post.author.authorId}`)
-            authorName.innerText = post.author.displayName
+            authorName.setAttribute('href', `/#/author/${posts[post].author.authorId}`)
+            authorName.innerText = posts[post].author.displayName
             postElement.querySelector('.author').append(authorName)
 
-            post?.image ? postElement.querySelector('.image').setAttribute('src', post.image) : postElement.querySelector('.image').remove()
-            postElement.querySelector('.title').innerText = post.title
-            post?.description ? postElement.querySelector('.description').innerText = post.description : postElement.querySelector('.description').remove()
-            postElement.querySelector('.content').innerHTML = marked.parse(post.content)
+            post?.image ? postElement.querySelector('.image').setAttribute('src', posts[post].image) : postElement.querySelector('.image').remove()
+            postElement.querySelector('.title').innerText = posts[post].title
+            post?.description ? postElement.querySelector('.description').innerText = posts[post].description : postElement.querySelector('.description').remove()
+            postElement.querySelector('.content').innerHTML = marked.parse(posts[post].content)
             
             const wrapper = document.createElement('div')
             wrapper.classList.add('postInfo')
@@ -78,11 +79,8 @@ async function loadContent(urlPath) {
             wrapper.append(postElement)
             postsWrapper.append(wrapper)
             
-            console.log(wrapper, postsWrapper)
+            wrapper..animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
         }
-        
-        content.append(postsWrapper)
-        content.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
         
         //TODO: show latest posts and other stuff
     } else if (urlPath.startsWith('#/post')) {
