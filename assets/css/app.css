@@ -54,7 +54,8 @@ h1.site-title {
     margin-block: 20px;
 }
 
-.post > .postDetails {
+.post > .postDetails,
+.author > .authorDetails {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -67,7 +68,8 @@ h1.site-title {
     font-size: 0.9rem;
 }
 
-.post > .postDetails > .image {
+.post > .postDetails > .image,
+.author > .authorDetails > .authorDetailsAvatar {
     margin: 0;
     width: 50vmin;
     display: block;
@@ -75,7 +77,12 @@ h1.site-title {
     z-index: 1;
 }
 
-.post > .postDetails > .right {
+.author > .authorDetails > .authorDetailsAvatar {
+    border-radius: 50%;
+}
+
+.post > .postDetails > .right,
+.author > .authorDetails > .right {
     display: flex;
     flex-direction: column;
     z-index: 3;
