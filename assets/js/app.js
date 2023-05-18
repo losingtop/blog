@@ -71,7 +71,6 @@ async function loadContent(urlPath) {
             post?.image ? postElement.querySelector('.image').setAttribute('src', posts[post].image) : postElement.querySelector('.image').remove()
             postElement.querySelector('.title').innerText = posts[post].title
             post?.description ? postElement.querySelector('.description').innerText = posts[post].description : postElement.querySelector('.description').remove()
-            postElement.querySelector('.content').innerHTML = marked.parse(posts[post].content)
             
             const wrapper = document.createElement('div')
             wrapper.classList.add('postInfo')
