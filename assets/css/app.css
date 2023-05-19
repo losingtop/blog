@@ -55,6 +55,7 @@ h1.site-title {
 }
 
 h1.site-title a {
+    display: inline-block;
     color: currentcolor;
     height: 100%;
     width: 100%;
