@@ -196,6 +196,14 @@ async function loadContent(urlPath) {
         const tagElementPostsCount = tagElement.querySelector('.tagDetails > .right > p.postsCount')
         tagElementPostsCount.innerText = `${tag.postsCount} total posts`
 
+        const wrapper = document.createElement('div')
+
+        wrapper.classList.add('tag')
+
+        wrapper.append(tagElement)
+
+        content.append(wrapper)
+        
         const { posts } = tag
 
         
@@ -292,11 +300,7 @@ async function loadContent(urlPath) {
 
         }
         
-        const wrapper = document.createElement('div')
-        wrapper.classList.add('tag')
-
-        wrapper.append(tagElement)
-        content.append(wrapper)
+   
     }  else if (urlPath.startsWith('#/author')) {
         const authorId = urlPath.replace('#/author/', '')
         if (!authorId) {
