@@ -52,6 +52,7 @@ main {
 h1.site-title {
     text-align: center;
     margin-block: 20px;
+    color: currentcolor;
 }
 
 .post > .postDetails,
@@ -95,6 +96,10 @@ h1.site-title {
 .postInfo > .right {
     display: flex;
     flex-direction: column;
+}
+
+.postInfo > .right .title {
+    color: currentcolor;
 }
 
 .tag > .tagDetails > .right > p.postsCount,
