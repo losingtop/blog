@@ -81,19 +81,20 @@ h1.site-title a {
 .postInfo > .image,
 .author > .authorDetails > .authorDetailsAvatar {
     margin: 0;
-    max-width: 50vmin;
+    max-height: 50vmin;
     display: block;
     object-fit: cover;
     z-index: 1;
 }
 
 .postInfo > .image {
-    max-width: 25vmin;
+    max-height: 25vmin;
 }
 
 .author > .authorDetails > .authorDetailsAvatar {
     border-radius: 50%;
-    max-width: 20vmin;
+    max-height: 20vmin;
+    aspect-ratio: 1/1;
 }
 
 .post > .postDetails > .right,
