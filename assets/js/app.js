@@ -196,6 +196,102 @@ async function loadContent(urlPath) {
         const tagElementPostsCount = tagElement.querySelector('.tagDetails > .right > p.postsCount')
         tagElementPostsCount.innerText = `${tag.postsCount} total posts`
 
+        const { posts } = tag
+
+        
+
+        const postsWrapper = document.createElement('div')
+
+        postsWrapper.classList.add('postsWrapper')
+
+        content.append(postsWrapper)
+
+        
+
+        for (post in posts) {
+
+            const template = document.querySelector('template#postInfo')
+
+            const postElement = template.content.cloneNode(true)
+
+            
+
+            if (posts[post]?.tags) {
+
+                const tagsWrapper = postElement.querySelector('.tags')
+
+                for (const tag of posts[post].tags) {
+
+                    const tagElement = document.createElement('a')
+
+                    tagElement.classList.add('tag')
+
+                    tagElement.setAttribute('href', `/#/tag/${tag}`)
+
+                    tagElement.innerText = tag
+
+                    tagsWrapper.append(tagElement)
+
+                }
+
+            } else
+
+                postElement.querySelector('.tags').remove()
+
+            const authorText = document.createElement('p')
+
+            authorText.innerText = 'By '
+
+            postElement.querySelector('.author').append(authorText)
+
+            if (posts[post].author?.avatar) {
+
+                const authorAvatar = document.createElement('img')
+
+                authorAvatar.classList.add('authorAvatar')
+
+                authorAvatar.setAttribute('src', posts[post].author.avatar)
+
+                authorAvatar.setAttribute('alt', `${posts[post].author.displayName}'s avatar`)
+
+                postElement.querySelector('.author').append(authorAvatar)
+
+            }
+
+            const authorName = document.createElement('a')
+
+            authorName.classList.add('authorNameLink')
+
+            authorName.setAttribute('href', `/#/author/${posts[post].author.authorId}`)
+
+            authorName.innerText = posts[post].author.displayName
+
+            postElement.querySelector('.author').append(authorName)
+
+            posts[post]?.image ? postElement.querySelector('.image').setAttribute('src', posts[post].image) : postElement.querySelector('.image').remove()
+
+            postElement.querySelector('.title').innerText = posts[post].title
+
+            postElement.querySelector('.title').setAttribute('href', `/#/post/${posts[post].postId}`)
+
+            posts[post]?.description ? postElement.querySelector('.description').innerText = posts[post].description : postElement.querySelector('.description').remove()
+
+            
+
+            const wrapper = document.createElement('div')
+
+            wrapper.classList.add('postInfo')
+
+            wrapper.append(postElement)
+
+            postsWrapper.append(wrapper)
+
+            
+
+            wrapper.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
+
+        }
+        
         const wrapper = document.createElement('div')
         wrapper.classList.add('tag')
 
