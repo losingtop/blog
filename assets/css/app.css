@@ -108,8 +108,13 @@ h1.site-title {
     display: flex;
     align-items: center;
     font-weight: bold;
-    font-size: 1.1em;
+    font-size: 1.1rem;
     margin-block: 20px;
+}
+
+.postInfo > .right > .author {
+    margin-block: 10px;
+    font-size: 1rem;
 }
 
 .post > .postDetails > .right > .author img,
@@ -119,6 +124,10 @@ h1.site-title {
     margin-left: 10px;
     margin-right: 5px;
     aspect-ratio: 1/1;
+}
+
+.postInfo > .right > .author img {
+    height: 32px;
 }
 
 .post > .postDetails > .right > .author a,
