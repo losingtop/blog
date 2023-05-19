@@ -140,6 +140,8 @@ h1.site-title {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
+    gap 3px;
+    flex-wrap: wrap;
 }
 
 .post > .postDetails > .right > .tags > .tag,
@@ -151,8 +153,6 @@ h1.site-title {
     text-decoration: none;
     border-radius: 24px;
     font-size: 0.9rem;
-    gap: 3px;
-    flex-wrap: wrap;
 }
 
 .post > .postDetails > .right > .dates {
