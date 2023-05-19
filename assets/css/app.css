@@ -41,6 +41,7 @@ video {
     display: block;
     margin-inline: auto;
     border-radius: 12px;
+    aspect-ratio: auto;
 }
 
 main {
