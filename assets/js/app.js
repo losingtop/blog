@@ -254,7 +254,7 @@ async function loadContent(urlPath) {
             wrapper.append(postElement)
             postsWrapper.append(wrapper)
             
-            wrapper.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1, delay: 100 * i })
+            wrapper.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1, delay: (300 * i) })
         }
     }  else if (urlPath.startsWith('#/author')) {
         const authorId = urlPath.replace('#/author/', '')
