@@ -80,6 +80,10 @@ h1.site-title {
     z-index: 1;
 }
 
+.postInfo > .image {
+    width: 10vmin;
+}
+
 .author > .authorDetails > .authorDetailsAvatar {
     border-radius: 50%;
     width: 20vmin;
