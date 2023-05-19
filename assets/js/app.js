@@ -19,7 +19,6 @@ async function loadContent(urlPath) {
         const recentPostsHeading = document.createElement('h2')
         recentPostsHeading.classList.add('sectionHeading')
         recentPostsHeading.innerText = `Recent posts`
-        content.append(recentPostsHeading)
        
         const res = await fetch(`https://blog-api.losing.top/posts`)
             .catch(() => {
@@ -33,7 +32,6 @@ async function loadContent(urlPath) {
         
         const postsWrapper = document.createElement('div')
         postsWrapper.classList.add('postsWrapper')
-        content.append(postsWrapper)
         
         for (post in posts) {
             const template = document.querySelector('template#postInfo')
@@ -81,6 +79,9 @@ async function loadContent(urlPath) {
             wrapper.append(postElement)
             postsWrapper.append(wrapper)
         }
+        
+        content.append(recentPostsHeading)
+        content.append(postsWrapper)
     } else if (urlPath.startsWith('#/post')) {
         const postId = urlPath.replace('#/post/', '')
         if (!postId) {
