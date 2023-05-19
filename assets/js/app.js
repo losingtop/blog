@@ -70,10 +70,10 @@ async function loadContent(urlPath) {
             authorName.innerText = posts[post].author.displayName
             postElement.querySelector('.author').append(authorName)
 
-            post?.image ? postElement.querySelector('.image').setAttribute('src', posts[post].image) : postElement.querySelector('.image').remove()
+            posts[post]?.image ? postElement.querySelector('.image').setAttribute('src', posts[post].image) : postElement.querySelector('.image').remove()
             postElement.querySelector('.title').innerText = posts[post].title
             postElement.querySelector('.title').setAttribute('href', `/#/post/${posts[post].postId}`)
-            post?.description ? postElement.querySelector('.description').innerText = posts[post].description : postElement.querySelector('.description').remove()
+            posts[post]?.description ? postElement.querySelector('.description').innerText = posts[post].description : postElement.querySelector('.description').remove()
             
             const wrapper = document.createElement('div')
             wrapper.classList.add('postInfo')
