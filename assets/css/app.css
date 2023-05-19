@@ -131,7 +131,7 @@ h1.site-title {
 }
 
 .post > .postDetails > .right > .author a,
-.postInfo > .right > . author a {
+.postInfo > .right > . author a.authorNameLink {
     color: currentcolor;
 }
 
