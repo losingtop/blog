@@ -107,6 +107,7 @@ h1.site-title a {
 
 .postInfo > .right .title {
     color: currentcolor;
+    font-size: 1.4rem;
 }
 
 .tag > .tagDetails > .right > p.postsCount,
