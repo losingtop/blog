@@ -80,19 +80,19 @@ h1.site-title a {
 .postInfo > .image,
 .author > .authorDetails > .authorDetailsAvatar {
     margin: 0;
-    width: 50vmin;
+    max-width: 50vmin;
     display: block;
     object-fit: cover;
     z-index: 1;
 }
 
 .postInfo > .image {
-    width: 25vmin;
+    max-width: 25vmin;
 }
 
 .author > .authorDetails > .authorDetailsAvatar {
     border-radius: 50%;
-    width: 20vmin;
+    max-width: 20vmin;
 }
 
 .post > .postDetails > .right,
@@ -130,7 +130,7 @@ h1.site-title a {
 
 .post > .postDetails > .right > .author img,
 .postInfo > .right > .author img {
-    height: 48px;
+    max-height: 48px;
     border-radius: 50%;
     margin-left: 10px;
     margin-right: 5px;
@@ -138,7 +138,7 @@ h1.site-title a {
 }
 
 .postInfo > .right > .author img {
-    height: 32px;
+    max-height: 32px;
 }
 
 .post > .postDetails > .right > .author a,
