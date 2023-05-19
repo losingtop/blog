@@ -140,7 +140,7 @@ h1.site-title {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
-    gap 3px;
+    gap: 3px;
     flex-wrap: wrap;
 }
 
