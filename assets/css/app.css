@@ -83,6 +83,10 @@ h1.site-title a {
     font-size: 0.9rem;
 }
 
+.post > .postDetails {
+    padding-block: 50px;
+}
+
 .postsWrapper {
     display: flex;
     flex-direction: row;
@@ -102,7 +106,7 @@ h1.site-title a {
 .postInfo > .image,
 .author > .authorDetails > .authorDetailsAvatar {
     margin: 0;
-    max-height: 50vmin;
+    max-height: 40vmin;
     display: block;
     object-fit: cover;
     z-index: 1;
