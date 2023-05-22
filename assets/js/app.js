@@ -68,10 +68,14 @@ async function loadContent(urlPath) {
             authorName.innerText = posts[post].author.displayName
             postElement.querySelector('.author').append(authorName)
 
+            const createdDateAndTime = `${new Date(posts[post].createdDate).toLocaleDateString()} ${new Date(posts[post].createdDate).toLocaleTimeString()}`
+            const updatedDateAndTime = `${new Date(posts[post].updatedDate).toLocaleDateString()} ${new Date(posts[post].updatedDate).toLocaleTimeString()}`
+
             posts[post]?.image ? postElement.querySelector('.image').setAttribute('src', posts[post].image) : postElement.querySelector('.image').remove()
             postElement.querySelector('.title').innerText = posts[post].title
             postElement.querySelector('.title').setAttribute('href', `/#/post/${posts[post].postId}`)
             posts[post]?.description ? postElement.querySelector('.description').innerText = posts[post].description : postElement.querySelector('.description').remove()
+            posts[post].querySelector('.dates').innerText = (posts[post].updatedDate > posts[post].createdDate ? `Updated at ${updatedDateAndTime}` : `Created at ${createdDateAndTime}`)
             
             const wrapper = document.createElement('div')
             wrapper.classList.add('postInfo')
