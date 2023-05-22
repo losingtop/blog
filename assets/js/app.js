@@ -75,7 +75,7 @@ async function loadContent(urlPath) {
             postElement.querySelector('.title').innerText = posts[post].title
             postElement.querySelector('.title').setAttribute('href', `/#/post/${posts[post].postId}`)
             posts[post]?.description ? postElement.querySelector('.description').innerText = posts[post].description : postElement.querySelector('.description').remove()
-            posts[post].querySelector('.dates').innerText = (posts[post].updatedDate > posts[post].createdDate ? `Updated at ${updatedDateAndTime}` : `Created at ${createdDateAndTime}`)
+            postElement.querySelector('.dates').innerText = (posts[post].updatedDate > posts[post].createdDate ? `Updated at ${updatedDateAndTime}` : `Created at ${createdDateAndTime}`)
             
             const wrapper = document.createElement('div')
             wrapper.classList.add('postInfo')
