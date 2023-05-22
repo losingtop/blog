@@ -200,4 +200,5 @@ h1.site-title a {
 
 .post > .postDetails > .right > .dates {
     font-size: 0.95em;
+    font-weight: bold;
 }
