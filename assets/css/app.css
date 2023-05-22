@@ -95,6 +95,7 @@ h1.site-title a {
     justify-content: center;
     align-items: center;
     width: 300px;
+    padding-block: 50px;
 }
 
 .post > .postDetails > .image,
