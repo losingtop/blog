@@ -93,7 +93,7 @@ h1.site-title a {
 }
 
 .postInfo > .image {
-    max-height: 25vmin;
+    width: 100%;
 }
 
 .author > .authorDetails > .authorDetailsAvatar {
