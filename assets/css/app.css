@@ -45,6 +45,8 @@ video {
 }
 
 main {
+    padding: 20px;
+    gap: 20px;
     width: min(100ch, 100% - 1rem);
     margin-inline: auto;
     overflow: hidden;
