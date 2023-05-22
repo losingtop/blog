@@ -49,7 +49,7 @@ main {
     flex-direction: column;
     padding: 20px;
     gap: 20px;
-    width: min(100ch, 100% - 1rem);
+    width: min(120ch, 100% - 2rem);
     margin-inline: auto;
     overflow: hidden;
 }
