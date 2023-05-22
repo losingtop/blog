@@ -68,6 +68,7 @@ h1.site-title a {
 .postInfo {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     gap: 20px;
     position: relative;
@@ -87,6 +88,8 @@ h1.site-title a {
 .postInfo {
     flex-wrap: nowrap;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 300px;
 }
 
