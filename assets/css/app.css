@@ -78,6 +78,7 @@ h1.site-title a {
 }
 
 .postsWrapper {
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
