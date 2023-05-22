@@ -83,8 +83,11 @@ h1.site-title a {
     font-size: 0.9rem;
 }
 
-.post > .postDetails {
+.post > .postDetails,
+.author > .authorDetails,
+.tag > .tagDetails {
     padding-block: 50px;
+    margin: 0;
 }
 
 .postsWrapper {
