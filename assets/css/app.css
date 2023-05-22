@@ -77,6 +77,11 @@ h1.site-title a {
     font-size: 0.9rem;
 }
 
+.postInfo {
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
 .post > .postDetails > .image,
 .postInfo > .image,
 .author > .authorDetails > .authorDetailsAvatar {
