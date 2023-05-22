@@ -67,6 +67,7 @@ h1.site-title a {
 .tag > .tagDetails,
 .postInfo {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
     position: relative;
