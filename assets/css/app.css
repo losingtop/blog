@@ -45,7 +45,7 @@ video {
 }
 
 main {
-    width: min(100ch, 100% - 2rem);
+    width: min(100ch, 100% - 1rem);
     margin-inline: auto;
     overflow: hidden;
 }
