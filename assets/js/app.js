@@ -13,6 +13,9 @@ async function loadContent(urlPath) {
     content.textContent = ''
     const p = document.createElement('p')
     
+    const footerText = document.querySelector('footer > p').innerText
+    const startDate = new Date()
+    
     if (!urlPath || urlPath === "#" || urlPath === "#/") {
         title.innerText = `losing's blog`
         
@@ -24,6 +27,7 @@ async function loadContent(urlPath) {
             .catch(() => {
                 title.innerText = `Error | losing's blog`
                 p.innerText = 'something went wrong'
+                footerText = footerText.replaceAll('{pageLoadMs}', (new Date).getTime() - startDate.getTime())
                 content.append(p)
                 return content.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
             })
@@ -91,6 +95,7 @@ async function loadContent(urlPath) {
         if (!postId) {
             title.innerText = `Not Found | losing's blog`
             p.innerText = 'no postId specified'
+            footerText = footerText.replaceAll('{pageLoadMs}', (new Date).getTime() - startDate.getTime())
             content.append(p)
             return content.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
         }
@@ -108,6 +113,7 @@ async function loadContent(urlPath) {
         if (post.error) {
             title.innerText = `Not Found | losing's blog`
             p.innerText = 'post not found'
+            footerText = footerText.replaceAll('{pageLoadMs}', (new Date).getTime() - startDate.getTime())
             content.append(p)
             return content.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
         }
@@ -167,6 +173,7 @@ async function loadContent(urlPath) {
         if (!tagName) {
             title.innerText = `Not Found | losing's blog`
             p.innerText = 'no tagName specified'
+            footerText = footerText.replaceAll('{pageLoadMs}', (new Date).getTime() - startDate.getTime())
             content.append(p)
             return content.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
         }
@@ -175,6 +182,7 @@ async function loadContent(urlPath) {
             .catch(() => {
                 title.innerText = `Error | losing's blog`
                 p.innerText = 'something went wrong'
+                footerText = footerText.replaceAll('{pageLoadMs}', (new Date).getTime() - startDate.getTime())
                 content.append(p)
                 return content.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
             })
@@ -184,6 +192,7 @@ async function loadContent(urlPath) {
         if (tag.error) {
             title.innerText = `Not Found | losing's blog`
             p.innerText = 'tag not found'
+            footerText = footerText.replaceAll('{pageLoadMs}', (new Date).getTime() - startDate.getTime())
             content.append(p)
             return content.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
         }
@@ -268,6 +277,7 @@ async function loadContent(urlPath) {
         if (!authorId) {
             title.innerText = `Not Found | losing's blog`
             p.innerText = 'no authorId specified'
+            footerText = footerText.replaceAll('{pageLoadMs}', (new Date).getTime() - startDate.getTime())
             content.append(p)
             return content.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
         }
@@ -276,6 +286,7 @@ async function loadContent(urlPath) {
             .catch(() => {
                 title.innerText = `Error | losing's blog`
                 p.innerText = 'something went wrong'
+                footerText = footerText.replaceAll('{pageLoadMs}', (new Date).getTime() - startDate.getTime())
                 content.append(p)
                 return content.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
             })
@@ -285,6 +296,7 @@ async function loadContent(urlPath) {
         if (author.error) {
             title.innerText = `Not Found | losing's blog`
             p.innerText = 'author not found'
+            footerText = footerText.replaceAll('{pageLoadMs}', (new Date).getTime() - startDate.getTime())
             content.append(p)
             return content.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
         }
@@ -381,5 +393,6 @@ async function loadContent(urlPath) {
         content.append(p)
     }
     
+    footerText = footerText.replaceAll('{pageLoadMs}', (new Date).getTime() - startDate.getTime())
     content.animate([{ transform: "translateX(120vw)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 1 })
 }
