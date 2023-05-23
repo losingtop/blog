@@ -13,7 +13,7 @@ async function loadContent(urlPath) {
     content.textContent = ''
     const p = document.createElement('p')
     
-    const footerText = document.querySelector('footer > p').innerText
+    let footerText = document.querySelector('footer > p').innerText
     const startDate = new Date()
     
     if (!urlPath || urlPath === "#" || urlPath === "#/") {
