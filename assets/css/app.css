@@ -87,7 +87,7 @@ h1.site-title a {
 .author > .authorDetails,
 .tag > .tagDetails {
     padding-block: 50px;
-    margin: 20px 20vmin;
+    margin: 20px 50px;
 }
 
 .postsWrapper {
