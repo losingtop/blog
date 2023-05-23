@@ -182,7 +182,6 @@ h1.site-title a {
 .postInfo > .right > .tags {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
     gap: 3px;
     flex-wrap: wrap;
 }
