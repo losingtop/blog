@@ -1,5 +1,6 @@
 const title = document.querySelector('head > title');
 const content = document.querySelector('main > div.content');
+const footerText = document.querySelector('footer > p').innerText;
 
 (async () => {    
     await loadContent(window.location.hash)
@@ -13,7 +14,6 @@ async function loadContent(urlPath) {
     content.textContent = ''
     const p = document.createElement('p')
     
-    const footerText = document.querySelector('footer > p').innerText
     const startDate = new Date()
     
     if (!urlPath || urlPath === "#" || urlPath === "#/") {
