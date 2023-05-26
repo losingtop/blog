@@ -212,10 +212,10 @@ h1.site-title a > img {
     font-weight: bold;
 }
 
-.post > .content p,
-.post > .content h1,
-.post > .content h2,
-.post > .content h3, {
+.post > .content > h1,
+.post > .content > h2,
+.post > .content > h3,
+.post > .content > p, {
     margin-top: 16px;
 }
 
