@@ -17,7 +17,11 @@ async function loadContent(urlPath) {
     
     const startDate = new Date()
     
-    if (!urlPath || urlPath === "#" || urlPath === "#/") {
+    if (urlPath?.startsWith('%23'))
+        urlPath = urlPath
+            .replace('%23', '#')
+    
+    if (!urlPath || urlPath === '#' || urlPath === '#/') {
         title.innerText = `losing's blog`
         
         const recentPostsHeading = document.createElement('h2')
