@@ -212,6 +212,12 @@ h1.site-title a > img {
     font-weight: bold;
 }
 
+.post > .content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
 footer {
     display: flex;
     align-items: center;
