@@ -29,6 +29,10 @@ async function loadContent(urlPath) {
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://blog.losing.top/" />
 <meta property="og:image" content="https://u.losing.top/ik5h" />
+
+<meta name="description" content="a blog where i write some interesting stuff about tech (and maybe more).">
+<meta name="keywords" content="losing, blog, devlog, developer, coder, codelog, devblog, codeblog, tech, techblog, techlog">
+<meta name="author" content="losing">
     `
         head.innerHTML += metaTags
         
@@ -156,11 +160,18 @@ async function loadContent(urlPath) {
 <meta property="og:type" content="article" />
 <meta property="og:url" content="{postLink}" />
 <meta property="og:image" content="{postImage}" />
+
+<meta name="description" content="{postDescription}">
+<meta name="keywords" content="{postTags}">
+<meta name="author" content="{postAuthor}">
     `
         const metaTags = metaTagsTemplate
             .replaceAll('{postTitle}', post.title)
             .replaceAll('{postLink}', `https://blog.losing.top/#/post/${post.postId}`)
             .replaceAll('{postImage}', post.image)
+            .replaceAll('{postDescription}', post.description)
+            .replaceAll('{postTags}', post.tags.join(', '))
+            .replaceAll('{postAuthor}', post.author.displayName)
         
         head.innerHTML += metaTags
 
@@ -230,6 +241,9 @@ async function loadContent(urlPath) {
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://blog.losing.top/#/tag/${tagName}" />
 <meta property="og:image" content="https://u.losing.top/ik5h" />
+
+<meta name="description" content="View posts with the ${tagName} tag.">
+<meta name="keywords" content="${tagName}, losing, blog">
     `
         
                 head.innerHTML += metaTags
@@ -398,11 +412,16 @@ async function loadContent(urlPath) {
 <meta property="og:type" content="website" />
 <meta property="og:url" content="{authorLink}" />
 <meta property="og:image" content="{authorAvatar}" />
+
+<meta name="description" content="{authorDescription}">
+<meta name="keywords" content="{authorName}, losing, blog">
+<meta name="author" content="{authorName}">
     `
         const metaTags = metaTagsTemplate
             .replaceAll('{authorName}', author.displayName)
             .replaceAll('{authorLink}', `https://blog.losing.top/#/author/${author.authorId}`)
             .replaceAll('{authorAvatar}', author.avatar)
+            .replaceAll('{authorDescription}', author.description)
         
         head.innerHTML += metaTags
 
