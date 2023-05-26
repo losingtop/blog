@@ -211,3 +211,10 @@ h1.site-title a > img {
     font-size: 0.95em;
     font-weight: bold;
 }
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+}
