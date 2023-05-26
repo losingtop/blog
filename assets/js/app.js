@@ -17,8 +17,8 @@ async function loadContent(urlPath) {
     
     const startDate = new Date()
     
-    if (urlPath?.startsWith('%23'))
-        urlPath = urlPath
+    if (window.location.pathname?.startsWith('/%23'))
+        urlPath = window.location.pathname
             .replace('%23', '#')
     
     if (!urlPath || urlPath === '#' || urlPath === '#/') {
