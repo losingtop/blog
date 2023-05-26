@@ -20,6 +20,7 @@ async function loadContent(urlPath) {
     if (window.location.pathname?.startsWith('/%23'))
         urlPath = window.location.pathname
             .replace('%23', '#')
+    console.log(urlPath)
     
     if (!urlPath || urlPath === '#' || urlPath === '#/') {
         title.innerText = `losing's blog`
