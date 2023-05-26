@@ -146,7 +146,7 @@ async function loadContent(urlPath) {
 <meta property="og:image" content="https://u.losing.top/ik5h" />
     `
         
-                head.innerHTML += metaTags
+            head.innerHTML += metaTags
             
             p.innerText = 'post not found'
             footerTextElement.innerText = footerText.replaceAll('{pageLoadMs}', (new Date).getTime() - startDate.getTime())
@@ -216,7 +216,7 @@ async function loadContent(urlPath) {
         postElement.querySelector('.title').innerText = post.title
         post?.description ? postElement.querySelector('.description').innerText = post.description : postElement.querySelector('.description').remove()
         postElement.querySelector('.dates').innerText = (post.updatedDate > post.createdDate ? `Updated at ${updatedDateAndTime}` : `Created at ${createdDateAndTime}`)
-        postElement.querySelector('.content').innerHTML = marked.parse(post.content)
+        postElement.querySelector('.content').innerHTML = post.htmlContent
 
         const wrapper = document.createElement('div')
         wrapper.classList.add('post')
