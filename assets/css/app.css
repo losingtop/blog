@@ -64,6 +64,7 @@ main {
 h1.site-title {
     text-align: center;
     margin-block: 20px;
+    font-size: 1.4rem;
 }
 
 h1.site-title a {
