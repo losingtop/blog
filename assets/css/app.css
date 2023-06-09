@@ -150,6 +150,7 @@ h1.site-title a > img {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 16px;
 }
 
 .postInfo > .right .title {
