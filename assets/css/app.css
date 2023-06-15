@@ -233,6 +233,7 @@ footer {
 }
 
 code {
+    inline-size: 80vw;
     overflow-wrap: break-word;
     hyphens: manual;
 }
